@@ -16,6 +16,7 @@ end
 
 def get_user_input
   answer = gets.chomp
+  answer
 end
 
 def end_game(card_total)
@@ -23,11 +24,22 @@ def end_game(card_total)
 end
 
 def initial_round
-  # code #initial_round here
+  sum = deal_card + deal_card
+  puts "Your cards add up to #{sum}"
+  sum
 end
 
-def hit?
-  # code hit? here
+def hit?(current_card_total)
+   prompt_user
+   get_user_input
+   if get_user_input == "h"
+     (sum = (deal_card)+current_card_total)
+     puts "Your cards add up to #{sum}"
+   elsif get_user_input != "h" || "s"
+   invalid_command
+   else get_user_input == "s"
+     puts "okay"
+    end
 end
 
 def invalid_command
