@@ -31,14 +31,14 @@ end
 
 def hit?(current_card_total)
    prompt_user
-   get_user_input = answer
+   answer = get_user_input
    if answer == "h"
      (sum = (deal_card)+current_card_total)
-     puts "Your cards add up to #{sum}"
-   elsif answer != "h" || "s"
-   invalid_command
-   else answer == "s"
-     puts "okay"
+     sum
+    elsif answer == "s"
+      current_card_total
+        else answer != "h" || "s"
+          invalid_command
     end
 end
 
