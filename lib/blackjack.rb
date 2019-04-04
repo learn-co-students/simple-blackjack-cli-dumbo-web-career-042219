@@ -1,3 +1,4 @@
+require 'pry'
 def welcome
   # code #welcome here
   puts "Welcome to the Blackjack Table"
@@ -8,9 +9,9 @@ def deal_card
   rand(1..11)
 end
 
-def display_card_total(total)
+def display_card_total(card_total)
   # code #display_card_total here
-  puts "Your cards add up to #{total}"
+  puts "Your cards add up to #{card_total}"
 end
 
 def prompt_user
@@ -23,17 +24,36 @@ def get_user_input
   gets.chomp
 end
 
-def end_game(number)
+def end_game(card_total)
   # code #end_game here
-  "Sorry, you hit #{card_total}. Thanks for playing!"
+  puts "Sorry, you hit #{card_total}. Thanks for playing!"
 end
 
 def initial_round
   # code #initial_round here
+  one = deal_card
+  two = deal_card
+  card_total = one + two
+  display_card_total(card_total)
+  card_total
 end
 
-def hit?
+def hit?(card_total)
   # code hit? here
+  prompt_user
+  input = get_user_input
+  input
+  if input == "s"
+     display_card_total(card_total)
+ binding.pry
+  elsif input=="h"
+    new_card= deal_card
+    display_card_total(card_total)
+    new_card= deal_card
+    card_total= card_total+ new_card
+end
+end
+end
 end
 
 def invalid_command
